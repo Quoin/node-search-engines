@@ -6,5 +6,9 @@ module.exports = Object.freeze({
     match: (ipAddress, userAgent) => searchEngines.reduce(
         (isMatch, searchEngine) => isMatch || searchEngine.match(ipAddress, userAgent),
         false
+    ),
+    find: (ipAddress, userAgent) => searchEngines.reduce(
+        (foundSearchEngine, searchEngine) => foundSearchEngine || searchEngine.match(ipAddress, userAgent) ? searchEngine : null,
+        null
     )
 });
