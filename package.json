@@ -1,6 +1,6 @@
 {
   "name": "@quoin/search-engines",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility library to validate IP and UA",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/Quoin/node-search-engines#readme",
   "dependencies": {
-    "cidr-matcher": "^2.1.1"
+    "cidr-matcher": "~2.1.1"
   }
 }
