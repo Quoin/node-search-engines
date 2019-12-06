@@ -1,0 +1,26 @@
+{
+  "name": "@quoin/search-engines",
+  "version": "1.0.0",
+  "description": "Utility library to validate IP and UA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quoin/node-search-engines.git"
+  },
+  "keywords": [
+    "Search",
+    "Engines"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Quoin/node-search-engines/issues"
+  },
+  "homepage": "https://github.com/Quoin/node-search-engines#readme",
+  "dependencies": {
+    "cidr-matcher": "^2.1.1"
+  }
+}
