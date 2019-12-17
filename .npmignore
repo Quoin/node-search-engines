@@ -2,6 +2,7 @@
 /.eslintrc.node.json
 /.eslintrc.node.test.json
 /.nycrc
+/.travis.yml
 /quoin-search-engines-*.tgz
 /reports
 /src
