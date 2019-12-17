@@ -1,14 +1,6 @@
-const searchEngines = require('./search-engines');
+import searchEngines from './search-engines';
 
-module.exports = Object.freeze({
-    get: (name) => searchEngines.find((searchEngine) => searchEngine.name === name),
-    listNames: () => searchEngines.map((searchEngine) => searchEngine.name),
-    match: (ipAddress, userAgent) => searchEngines.reduce(
-        (isMatch, searchEngine) => isMatch || searchEngine.match(ipAddress, userAgent),
-        false
-    ),
-    find: (ipAddress, userAgent) => searchEngines.reduce(
-        (foundSearchEngine, searchEngine) => foundSearchEngine || searchEngine.match(ipAddress, userAgent) ? searchEngine : null,
-        null
-    )
-});
+export const find = (ipAddress, userAgent) => searchEngines.find((searchEngine) => searchEngine.match(ipAddress, userAgent));
+export const get = (name) => searchEngines.find((searchEngine) => searchEngine.name === name);
+export const listNames = () => searchEngines.map((searchEngine) => searchEngine.name);
+export const match = (ipAddress, userAgent) => Boolean(find(ipAddress, userAgent));

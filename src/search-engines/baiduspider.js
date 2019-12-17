@@ -1,8 +1,8 @@
 // http://www.baidu.com/search/spider.html
 
-const SearchEngine = require('./model');
+import SearchEngine from './model';
 
-module.exports = new SearchEngine(
+export default new SearchEngine(
     'Baiduspider',
     [
         'Baiduspider'

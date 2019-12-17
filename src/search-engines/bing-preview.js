@@ -1,8 +1,8 @@
 // The Aspire Web Crawler (http://www.searchtechnologies.com/aspire
 
-const SearchEngine = require('./model');
+import SearchEngine from './model';
 
-module.exports = new SearchEngine(
+export default new SearchEngine(
     'BingPreview',
     [
         'BingPreview'
