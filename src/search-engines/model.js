@@ -2,9 +2,9 @@ const CIDRMatcher = require('cidr-matcher');
 
 class SearchEngine {
     constructor(name, userAgents, cidrs) {
-        this.name = name;
+        this._name = name;
 
-        this.userAgents = Object.freeze(userAgents.reduce(
+        this._userAgents = Object.freeze(userAgents.reduce(
             (userAgents, userAgent) => {
                 if (userAgent) {
                     return userAgents.concat(userAgent.toLowerCase());
@@ -16,11 +16,11 @@ class SearchEngine {
         ));
 
         if (cidrs && cidrs.length) {
-            this.cidrMatcher = new CIDRMatcher();
+            this._cidrMatcher = new CIDRMatcher();
             cidrs.forEach((cidr, index) => {
                 try {
                     if (cidr) {
-                        this.cidrMatcher.addNetworkClass(cidr);
+                        this._cidrMatcher.addNetworkClass(cidr);
                     }
                 } catch (err) {
                     console.error(`Ignoring invalid cidr='${cidr}' at position ${index}. Err=`, err);
@@ -29,15 +29,23 @@ class SearchEngine {
         }
     }
 
+    get name() {
+        return this._name;
+    }
+
     match(ipAddress, userAgentString) {
         let matchCidr = true;
-        if (this.cidrMatcher) {
-            matchCidr = this.cidrMatcher.contains(ipAddress);
+        if (this._cidrMatcher) {
+            matchCidr = this._cidrMatcher.contains(ipAddress);
+        }
+
+        if (typeof userAgentString !== 'string') {
+            userAgentString = '';
         }
 
         let matchUserAgent = true;
-        if (this.userAgents && this.userAgents.length) {
-            matchUserAgent = this.userAgents.reduce(
+        if (this._userAgents && this._userAgents.length) {
+            matchUserAgent = this._userAgents.reduce(
                 (isValidUserAgent, userAgent) => isValidUserAgent || userAgentString.toLowerCase().indexOf(userAgent) !== -1,
                 false
             );

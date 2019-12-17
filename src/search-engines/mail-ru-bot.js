@@ -1,6 +1,6 @@
-const SearchEngine = require('./model');
+import SearchEngine from './model';
 
-module.exports = new SearchEngine(
+export default new SearchEngine(
     'Mail.RU_bot',
     [
         'Mail.RU_Bot'

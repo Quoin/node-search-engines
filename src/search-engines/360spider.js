@@ -1,6 +1,6 @@
-const SearchEngine = require('./model');
+import SearchEngine from './model';
 
-module.exports = new SearchEngine(
+export default new SearchEngine(
     '360Spider',
     [
         '360Spider'

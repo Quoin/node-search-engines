@@ -1,8 +1,8 @@
 // http://www.apple.com/go/applebot
 
-const SearchEngine = require('./model');
+import SearchEngine from './model';
 
-module.exports = new SearchEngine(
+export default new SearchEngine(
     'Applebot',
     [
         'Applebot'
