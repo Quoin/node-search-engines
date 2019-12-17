@@ -1,5 +1,7 @@
 # Quoin - Search Engines utility library
 
+[![Build Status](https://travis-ci.com/Quoin/node-search-engines.svg?branch=master)](https://travis-ci.com/Quoin/node-search-engines)
+
 This library tries to detect if an access is coming from a search engine.
 
 ## Basic usage
