@@ -2,8 +2,12 @@
   "name": "@quoin/search-engines",
   "version": "1.0.1",
   "description": "Utility library to validate IP and UA",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "clean": "rimraf dist quoin-search-engines-*.tgz",
+    "prebabel": "npm run clean",
+    "babel": "babel --out-dir dist src",
+    "prepack": "npm run babel",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +26,15 @@
   "homepage": "https://github.com/Quoin/node-search-engines#readme",
   "dependencies": {
     "cidr-matcher": "~2.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "~7.7.5",
+    "@babel/core": "~7.7.5",
+    "@babel/plugin-transform-modules-commonjs": "~7.7.5",
+    "@babel/preset-env": "~7.7.6",
+    "@babel/preset-react": "~7.7.4",
+    "@babel/register": "~7.7.4",
+    "@quoin/node-test-helpers": "~1.0.3",
+    "rimraf": "~3.0.0"
   }
 }
