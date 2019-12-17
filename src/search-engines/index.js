@@ -77,5 +77,5 @@ module.exports = Object.freeze([
     yahoo,
     yandex,
     yeti,
-    yisouSpider,
+    yisouSpider
 ]);

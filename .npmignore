@@ -1,3 +1,4 @@
 /.babelrc
+/.eslintrc.node.json
 /quoin-search-engines-*.tgz
 /src
