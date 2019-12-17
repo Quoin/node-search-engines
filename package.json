@@ -6,9 +6,14 @@
   "scripts": {
     "clean": "rimraf dist quoin-search-engines-*.tgz",
     "prebabel": "npm run eslint && npm run clean",
-    "babel": "babel --out-dir dist src",
-    "eslint": "eslint --fix --config=.eslintrc.node.json src",
-    "prepack": "npm run babel"
+    "babel": "babel --out-dir dist --ignore \"src/**/*.test.js\" src",
+    "eslint:node": "eslint --fix --config=.eslintrc.node.json --ignore-pattern=\"*.test.js\" src",
+    "eslint:test": "eslint --fix --config=.eslintrc.node.test.json src/**/*.test.js",
+    "eslint": "npm run eslint:node && npm run eslint:test",
+    "prepack": "npm run coverage && npm run babel",
+    "coverage": "nyc npm run test",
+    "coverage-report": "nyc report --reporter=text --reporter=text-summary",
+    "test": "mocha --require @babel/register \"src/**/*.test.js\""
   },
   "repository": {
     "type": "git",
@@ -32,7 +37,6 @@
     "@babel/core": "~7.7.5",
     "@babel/plugin-transform-modules-commonjs": "~7.7.5",
     "@babel/preset-env": "~7.7.6",
-    "@babel/preset-react": "~7.7.4",
     "@babel/register": "~7.7.4",
     "@quoin/eslint-config-quoin": "~0.3.3",
     "@quoin/node-test-helpers": "~1.0.3",
@@ -44,6 +48,8 @@
     "eslint-plugin-node": "~10.0.0",
     "eslint-plugin-promise": "~4.2.1",
     "eslint-plugin-standard": "~4.0.1",
+    "mocha": "~6.2.2",
+    "nyc": "~14.1.1",
     "rimraf": "~3.0.0"
   }
 }

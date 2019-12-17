@@ -1,4 +1,7 @@
 /.babelrc
 /.eslintrc.node.json
+/.eslintrc.node.test.json
+/.nycrc
 /quoin-search-engines-*.tgz
+/reports
 /src
