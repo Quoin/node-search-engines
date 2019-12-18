@@ -1,6 +1,6 @@
 {
   "name": "@quoin/search-engines",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Utility library to validate IP and UA",
   "main": "dist/index.js",
   "scripts": {
