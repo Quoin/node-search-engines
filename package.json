@@ -1,8 +1,15 @@
 {
   "name": "@quoin/search-engines",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Utility library to validate IP and UA",
   "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public",
+    "tag": "node14"
+  },
+  "engines": {
+    "node": ">=14.15.0"
+  },
   "scripts": {
     "clean": "rimraf dist quoin-search-engines-*.tgz",
     "prebabel": "npm run eslint && npm run clean",
@@ -11,7 +18,7 @@
     "eslint:test": "eslint --fix --config=.eslintrc.node.test.json src/**/*.test.js",
     "eslint": "npm run eslint:node && npm run eslint:test",
     "prepack": "npm run coverage && npm run babel",
-    "coverage": "nyc npm run test",
+    "coverage": "nyc npm test",
     "coverage-report": "nyc report --reporter=text --reporter=text-summary",
     "test": "mocha --require @babel/register \"src/**/*.test.js\""
   },
@@ -33,23 +40,66 @@
     "cidr-matcher": "~2.1.1"
   },
   "devDependencies": {
-    "@babel/cli": "~7.7.5",
-    "@babel/core": "~7.7.5",
-    "@babel/plugin-transform-modules-commonjs": "~7.7.5",
-    "@babel/preset-env": "~7.7.6",
-    "@babel/register": "~7.7.4",
-    "@quoin/eslint-config-quoin": "~0.3.3",
-    "@quoin/node-test-helpers": "~1.0.3",
-    "eslint": "~6.7.2",
-    "eslint-config-standard": "~14.1.0",
-    "eslint-plugin-html": "~6.0.0",
-    "eslint-plugin-import": "~2.19.1",
-    "eslint-plugin-json": "~2.0.1",
-    "eslint-plugin-node": "~10.0.0",
-    "eslint-plugin-promise": "~4.2.1",
-    "eslint-plugin-standard": "~4.0.1",
-    "mocha": "~6.2.2",
-    "nyc": "~14.1.1",
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/register": "^7.14.5",
+    "@quoin/eslint-config-quoin": "^2.0.1",
+    "@quoin/node-test-helpers": "^2.0.0",
+    "eslint": "^7.28.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-json": "^3.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "mocha": "^9.0.1",
+    "nyc": "^15.1.0",
     "rimraf": "~3.0.0"
+  },
+  "babel": {
+    "sourceMaps": true,
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "nyc": {
+    "all": true,
+    "temp-dir": "./reports/nyc_output",
+    "report-dir": "./reports/coverage",
+    "require": [
+      "@babel/register"
+    ],
+    "exclude": [
+      "dist/",
+      "reports/",
+      "src/**/*.test.js"
+    ],
+    "extension": [
+      ".js"
+    ],
+    "reporter": [
+      "cobertura",
+      "lcov",
+      "html"
+    ],
+    "watermarks": {
+      "statements": [
+        50,
+        80
+      ],
+      "lines": [
+        50,
+        80
+      ],
+      "functions": [
+        50,
+        80
+      ],
+      "branches": [
+        50,
+        80
+      ]
+    }
   }
 }
