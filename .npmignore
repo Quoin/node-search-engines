@@ -1,6 +1,7 @@
 /.babelrc
 /.eslintrc.node.json
 /.eslintrc.node.test.json
+/.github
 /.nycrc
 /.travis.yml
 /quoin-search-engines-*.tgz
