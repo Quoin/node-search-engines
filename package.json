@@ -1,11 +1,10 @@
 {
   "name": "@quoin/search-engines",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Utility library to validate IP and UA",
   "main": "dist/index.js",
   "publishConfig": {
-    "access": "public",
-    "tag": "node14"
+    "access": "public"
   },
   "engines": {
     "node": ">=14.15.0"
@@ -42,11 +41,11 @@
   "devDependencies": {
     "@babel/cli": "^7.14.5",
     "@babel/core": "^7.14.6",
-    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
     "@babel/register": "^7.14.5",
-    "@quoin/eslint-config-quoin": "^2.0.1",
-    "@quoin/node-test-helpers": "^2.0.0",
-    "eslint": "^7.28.0",
+    "@quoin/eslint-config-quoin": "^2.0.2",
+    "@quoin/node-test-helpers": "^2.0.1",
+    "eslint": "^7.29.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-html": "^6.1.2",
     "eslint-plugin-import": "^2.23.4",

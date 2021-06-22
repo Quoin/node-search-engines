@@ -1,5 +1,9 @@
 # Release Notes
 
+## 2.0.1 - 2021-06-21
+
+- Merging into master branch and latest tag.
+
 ## 1.0.2 - 2019-12-18
 
 - Fix `.find()` and rewrite into es6.
